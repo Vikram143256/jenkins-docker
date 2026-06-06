@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>FLAVOR HAVEN | Modern Restaurant Experience</title>
+  <!-- Google Fonts & Font Awesome for clean icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefaf5;
+      color: #1e1e2a;
+      line-height: 1.4;
+      scroll-behavior: smooth;
+    }
+
+    /* custom scroll */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1e7de;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c17b4c;
+      border-radius: 6px;
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: rgba(255, 248, 240, 0.96);
+      backdrop-filter: blur(4px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(193, 123, 76, 0.2);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #bc6c25, #9c4d2e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .logo span {
+      font-size: 1.4rem;
+      background: none;
+      color: #bc6c25;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.3rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2d2a26;
+      transition: 0.2s ease;
+      font-size: 1rem;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #bc6c25;
+    }
+    .book-btn {
+      background: #bc6c25;
+      color: white !important;
+      padding: 0.55rem 1.3rem;
+      border-radius: 40px;
+      transition: 0.2s;
+    }
+    .book-btn:hover {
+      background: #9a521d;
+      transform: scale(0.97);
+    }
+
+    /* hero section */
+    .hero {
+      background: linear-gradient(107deg, #fff3e9 0%, #fde9db 100%);
+      padding: 3rem 0 4rem 0;
+    }
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .hero-content {
+      flex: 1;
+    }
+    .hero-content .badge {
+      background: #e9cbb7;
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #784a1e;
+      margin-bottom: 1.2rem;
+    }
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #2b241f;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #5a4a3a;
+      margin-bottom: 2rem;
+      max-width: 90%;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: #bc6c25;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover {
+      background: #9e551d;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #bc6c25;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      color: #bc6c25;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-outline:hover {
+      background: #bc6c25;
+      color: white;
+    }
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 38px;
+      box-shadow: 0 25px 45px -12px rgba(0,0,0,0.2);
+      object-fit: cover;
+    }
+
+    /* specialties section */
+    .section {
+      padding: 5rem 0;
+    }
+    .section-title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2d2a26;
+    }
+    .section-sub {
+      text-align: center;
+      color: #9a6e4b;
+      margin-bottom: 3rem;
+      font-size: 1rem;
+    }
+    .cards-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .food-card {
+      background: white;
+      border-radius: 32px;
+      overflow: hidden;
+      width: 280px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+    .food-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 32px rgba(172, 95, 32, 0.12);
+    }
+    .card-img {
+      height: 190px;
+      background-size: cover;
+      background-position: center;
+    }
+    .card-info {
+      padding: 1.5rem 1.2rem 1.5rem;
+    }
+    .card-info h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .card-info p {
+      color: #6b4c34;
+      margin: 0.6rem 0;
+      font-size: 0.9rem;
+    }
+    .price {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #bc6c25;
+      margin-top: 0.5rem;
+    }
+
+    /* about + ambiance */
+    .about-flex {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      flex-wrap: wrap;
+      background: #fbf4ec;
+      border-radius: 48px;
+      padding: 2rem;
+    }
+    .about-text {
+      flex: 1;
+    }
+    .about-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .about-text p {
+      margin-bottom: 1rem;
+      color: #3f3328;
+      line-height: 1.5;
+    }
+    .about-img {
+      flex: 1;
+    }
+    .about-img img {
+      width: 100%;
+      border-radius: 36px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    /* reservation form */
+    .reserve-card {
+      background: white;
+      border-radius: 40px;
+      padding: 2rem 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.2rem;
+    }
+    .form-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .form-group label {
+      font-weight: 500;
+      color: #6a4c31;
+    }
+    input, select, textarea {
+      padding: 0.8rem 1rem;
+      border-radius: 28px;
+      border: 1px solid #e2cfbe;
+      background: #fffdf9;
+      font-family: 'Inter', sans-serif;
+      transition: 0.15s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #bc6c25;
+      box-shadow: 0 0 0 2px rgba(188,108,37,0.2);
+    }
+    .btn-block {
+      width: 100%;
+      justify-content: center;
+      background: #bc6c25;
+      margin-top: 0.8rem;
+    }
+    /* footer */
+    footer {
+      background: #1e1915;
+      color: #e9dbcf;
+      padding: 2.5rem 0;
+      margin-top: 2rem;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-col h4 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 1rem;
+    }
+    .social i {
+      font-size: 1.6rem;
+      margin-right: 1rem;
+      color: #e1b282;
+      transition: 0.2s;
+    }
+    .social i:hover {
+      color: #f5cba0;
+    }
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      font-size: 0.8rem;
+    }
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+      }
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      .container {
+        padding: 0 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">FLAVOR HAVEN <span>✦</span></div>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#reserve">Reservations</a></li>
+      <li><a href="#about">Story</a></li>
+      <li><a href="#" class="book-btn">Call +1 234 567 890</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge"><i class="fas fa-utensils"></i>  Since 2012 • Farm to Table</div>
+        <h1>Savor the Art of <br> Extraordinary Dining</h1>
+        <p>Experience the harmony of bold flavors, locally sourced ingredients, and an ambiance that feels like home. Every plate tells a story.</p>
+        <div class="btn-group">
+          <button class="btn-primary" id="exploreMenuBtn"><i class="fas fa-eye"></i> Explore Menu</button>
+          <button class="btn-outline" id="bookTableHero"><i class="fas fa-calendar-alt"></i> Book a Table</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Delicious gourmet dish" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature Dishes / Menu Section -->
+  <section class="section" id="menu">
+    <div class="container">
+      <div class="section-title">Signature Bites</div>
+      <div class="section-sub">Chef's curated selection — bold, fresh, unforgettable.</div>
+      <div class="cards-grid" id="dishesContainer">
+        <!-- dynamic + static fallback, but we will render with JS but also have static fallback -->
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Ambiance -->
+  <section class="container" id="about" style="padding-bottom: 3rem;">
+    <div class="about-flex">
+      <div class="about-text">
+        <h2><i class="fas fa-leaf"></i> Where heritage meets modern flair</h2>
+        <p>Flavor Haven was born from a passion to bring authentic, hearth-cooked meals with a contemporary twist. Our open kitchen, handcrafted ceramics, and warm lighting create an intimate yet lively atmosphere.</p>
+        <p>Every ingredient is ethically sourced from regional farmers and artisans. We believe in sustainability without compromising taste — a delicious, responsible journey awaits you.</p>
+        <button class="btn-primary" style="background:#9a5729; margin-top:1rem;" id="aboutReserveBtn"><i class="fas fa-glass-cheers"></i> Join us for dinner</button>
+      </div>
+      <div class="about-img">
+        <img src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=600" alt="restaurant interior">
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Section -->
+  <section class="section" id="reserve">
+    <div class="container">
+      <div class="section-title">Reserve Your Experience</div>
+      <div class="section-sub">Secure a table for an unforgettable culinary moment</div>
+      <div class="reserve-card">
+        <form id="reservationForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-user"></i> Full name</label>
+              <input type="text" id="resName" placeholder="John Carter" required>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-envelope"></i> Email</label>
+              <input type="email" id="resEmail" placeholder="hello@example.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-calendar"></i> Date</label>
+              <input type="date" id="resDate" required>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-clock"></i> Time</label>
+              <select id="resTime">
+                <option>5:30 PM</option>
+                <option>6:00 PM</option>
+                <option>6:30 PM</option>
+                <option>7:00 PM</option>
+                <option>7:30 PM</option>
+                <option>8:00 PM</option>
+                <option>8:30 PM</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-users"></i> Guests</label>
+              <select id="resGuests">
+                <option>1 person</option><option>2 persons</option><option>3 persons</option>
+                <option>4 persons</option><option>5 persons</option><option>6+ persons</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Special requests (allergies, celebration)</label>
+            <textarea rows="2" id="resRequest" placeholder="e.g., anniversary, vegetarian preference..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-block"><i class="fas fa-check-circle"></i> Confirm Reservation</button>
+        </form>
+        <div id="formFeedback" style="margin-top: 1.2rem; text-align: center; font-weight: 500;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4>FLAVOR HAVEN</h4>
+        <p>47 Culinary Lane, Foodie District<br>New York, NY 10014</p>
+        <p><i class="fas fa-phone-alt"></i> +1 (212) 555-0943</p>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <p>Mon - Thu: 12pm – 10pm<br>Fri - Sun: 11am – 11pm</p>
+      </div>
+      <div class="footer-col social">
+        <h4>Connect</h4>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-tiktok"></i>
+      </div>
+    </div>
+    <div class="copyright container">© 2026 Flavor Haven — crafted with warmth and flavor.</div>
+  </footer>
+
+  <script>
+    // Menu Data with beautiful dishes
+    const menuItems = [
+      { name: "Truffle Mushroom Risotto", desc: "Creamy arborio, wild mushrooms, aged parmesan", price: "$24", img: "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=400" },
+      { name: "Miso Glazed Salmon", desc: "Fresh Atlantic salmon, sesame broccolini, jasmine rice", price: "$32", img: "https://images.pexels.com/photos/46239/salmon-dish-fish-meat-46239.jpeg?auto=compress&cs=tinysrgb&w=400" },
+      { name: "Spicy Arrabiata Pasta", desc: "House-made rigatoni, chili tomato sauce, basil", price: "$19", img: "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=400" },
+      { name: "Slow Braised Short Rib", desc: "Red wine glaze, creamy polenta, gremolata", price: "$38", img: "https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=400" }
+    ];
+    // fix duplicate image for risotto vs pasta - unique image for rib: better variety
+    menuItems[2].img = "https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&w=400"; // pasta style
+    menuItems[3].img = "https://images.pexels.com/photos/675951/pexels-photo-675951.jpeg?auto=compress&cs=tinysrgb&w=400"; // beef
+
+    function renderMenuCards() {
+      const container = document.getElementById('dishesContainer');
+      if (!container) return;
+      container.innerHTML = '';
+      menuItems.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'food-card';
+        card.innerHTML = `
+          <div class="card-img" style="background-image: url('${item.img}'); background-size: cover;"></div>
+          <div class="card-info">
+            <h3>${item.name}</h3>
+            <p>${item.desc}</p>
+            <div class="price">${item.price}</div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+    renderMenuCards();
+
+    // Smooth Scrolling + interactive buttons
+    const scrollToSection = (id) => {
+      const element = document.getElementById(id);
+      if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    document.getElementById('exploreMenuBtn')?.addEventListener('click', () => scrollToSection('menu'));
+    document.getElementById('bookTableHero')?.addEventListener('click', () => scrollToSection('reserve'));
+    document.getElementById('aboutReserveBtn')?.addEventListener('click', () => scrollToSection('reserve'));
+
+    // reservation form handling (show success message)
+    const reservationForm = document.getElementById('reservationForm');
+    const feedbackDiv = document.getElementById('formFeedback');
+
+    function showMessage(text, isError = false) {
+      feedbackDiv.innerHTML = text;
+      feedbackDiv.style.color = isError ? '#c43a1b' : '#2a7f49';
+      setTimeout(() => {
+        if (feedbackDiv.innerHTML === text) feedbackDiv.innerHTML = '';
+      }, 3500);
+    }
+
+    reservationForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('resName')?.value.trim();
+      const email = document.getElementById('resEmail')?.value.trim();
+      const date = document.getElementById('resDate')?.value;
+      const time = document.getElementById('resTime')?.value;
+      const guests = document.getElementById('resGuests')?.value;
+
+      if (!name || !email || !date) {
+        showMessage('❌ Please fill in name, email, and date.', true);
+        return;
+      }
+      if (!email.includes('@') || !email.includes('.')) {
+        showMessage('❌ Provide a valid email address.', true);
+        return;
+      }
+      // Simulate booking confirmation
+      showMessage(`🎉 Thank you ${name}! Your table for ${guests} on ${date} at ${time} is confirmed. We'll send a reminder to ${email}.`, false);
+      reservationForm.reset();
+      // optional reset date to empty
+      document.getElementById('resDate').value = '';
+    });
+
+    // interactive navigation active highlight + additional
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = ['menu', 'reserve', 'about'];
+    window.addEventListener('scroll', () => {
+      let current = '';
+      const scrollPos = window.scrollY + 120;
+      sections.forEach(id => {
+        const section = document.getElementById(id);
+        if (section) {
+          const offsetTop = section.offsetTop;
+          const offsetHeight = section.offsetHeight;
+          if (scrollPos >= offsetTop && scrollPos < offsetTop + offsetHeight) {
+            current = id;
+          }
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        if (href === `#${current}`) link.classList.add('active');
+        else if (current === '' && link.getAttribute('href') === '#') link.classList.add('active');
+      });
+    });
+
+    // simple datepicker min: today
+    const today = new Date().toISOString().split('T')[0];
+    const dateInput = document.getElementById('resDate');
+    if (dateInput) dateInput.setAttribute('min', today);
+
+    // Add subtle interactive for cards alert? just optional console friendly no extra
+    const cards = document.querySelectorAll('.food-card');
+    if (cards.length) {
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          const dishName = card.querySelector('h3')?.innerText;
+          if (dishName) {
+            // gentle alert replacement: show small tooltip like but use feedback?
+            const tempMsg = document.createElement('div');
+            tempMsg.innerText = `✨ "${dishName}" added to your cravings! Call us to order. ✨`;
+            tempMsg.style.position = 'fixed';
+            tempMsg.style.bottom = '20px';
+            tempMsg.style.left = '20px';
+            tempMsg.style.background = '#bc6c25';
+            tempMsg.style.color = 'white';
+            tempMsg.style.padding = '10px 20px';
+            tempMsg.style.borderRadius = '40px';
+            tempMsg.style.fontWeight = '500';
+            tempMsg.style.zIndex = '999';
+            tempMsg.style.boxShadow = '0 5px 12px rgba(0,0,0,0.2)';
+            document.body.appendChild(tempMsg);
+            setTimeout(() => tempMsg.remove(), 2200);
+          }
+        });
+      });
+    }
+    
+    // Make mobile responsive contact click
+    const bookBtnNav = document.querySelector('.book-btn');
+    if(bookBtnNav) bookBtnNav.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("📞 Call us at +1 234 567 890 — we're ready to serve you!");
+    });
+  </script>
+</body>
+</html>
